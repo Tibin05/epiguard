@@ -33,8 +33,8 @@ _A preencher no CP5, quando o protótipo navegável estiver disponível._
 | Integrante | Papel |
 |---|---|
 | Eric Siciliano | Product Owner / Documentação |
-| Enrico Nikolay Meirelles Zeronian | Modelagem UML |
+| Lucas Costa Sanson | Modelagem UML |
 | Vinicius de Abreu Fernandes | Design / Identidade visual |
 | Giuliano Ferreira Venceslau | Scrum Master / Trello |
 | Felipe Chiozzotto Gozzani | GitHub / Infraestrutura |
-| Lucas Costa Sanson | Pitch / Apresentação |
+| Enrico Nikolay Meirelles Zeronian | Pitch / Apresentação |
