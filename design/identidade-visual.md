@@ -28,5 +28,7 @@ Escudo (proteção) com um check interno (conformidade/verificação). Monocrom�
 - **Texto** (parágrafos, formulários): IBM Plex Sans.
 - **Dados** (datas, CA, códigos): IBM Plex Mono.
 
-## Próximo passo
-Montar isso como arquivo `.fig` real no Figma (paleta + type styles + logo vetorizado) e linkar aqui. Ver rascunho visual completo no artefato publicado do CP4.
+## Arquivo Figma
+https://www.figma.com/design/DvzT8Wfshv8kSFqs4CBKgR
+
+Contém: logo, nome, tagline, paleta com hex e nomes, e specimen de tipografia dos 3 papéis (Display/Texto/Dados).
