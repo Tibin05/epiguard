@@ -23,6 +23,7 @@ Web (definição de framework em andamento — ver [docs/jornada.md](docs/jornad
 - [Diagrama de caso de uso](docs/diagramas/caso-de-uso.md)
 - [Identidade visual](design/identidade-visual.md)
 - [Registro de decisões e mudanças de escopo](docs/jornada.md)
+- [Vídeo de apresentação (CP4)](https://youtu.be/uG78S6TPvsw)
 
 ## Como rodar
 

@@ -10,4 +10,5 @@ Registro vivo: atualizar a cada checkpoint, nunca reescrever do zero.
 - **2026-08-27**: Grupo formalizado (6 integrantes) e papéis distribuídos — ver tabela "Time" no README.
 - **2026-08-27**: Figma da identidade visual criado (logo, paleta, tipografia) — https://www.figma.com/design/DvzT8Wfshv8kSFqs4CBKgR
 - **2026-08-30**: Quadro Trello criado e tarefas distribuídas — https://trello.com/b/y73SiZXd/epiguard-cp4-cp5-cp6
-- _Pendente_: gravação do vídeo de apresentação (2 min).
+- **2026-08-31**: Papel de apresentação trocado — Enrico grava o vídeo, Lucas assume Modelagem UML.
+- **2026-08-31**: Vídeo de apresentação gravado e publicado — https://youtu.be/uG78S6TPvsw. CP4 completo.
