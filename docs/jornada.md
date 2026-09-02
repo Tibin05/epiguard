@@ -11,3 +11,4 @@ Registro vivo: atualizar a cada checkpoint, nunca reescrever do zero.
 - **2026-08-27**: Figma da identidade visual criado (logo, paleta, tipografia) — https://www.figma.com/design/DvzT8Wfshv8kSFqs4CBKgR
 - **2026-08-30**: Quadro Trello criado e tarefas distribuídas — https://trello.com/b/y73SiZXd/epiguard-cp4-cp5-cp6
 - **2026-08-31**: Vídeo de apresentação gravado e publicado — https://youtu.be/uG78S6TPvsw. CP4 completo.
+- **2026-09-01**: CP4 nota 10 — feedback do professor: diagrama de caso de uso poderia ser melhor trabalhado. Refeito em notação UML formal (atores, fronteira do sistema, elipses, `«include»`/`«extend»`) — ver docs/diagramas/caso-de-uso.svg.

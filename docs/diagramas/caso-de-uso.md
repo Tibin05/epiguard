@@ -1,6 +1,12 @@
 # Diagrama de Caso de Uso — EPIGuard
 
-Dois atores, oito casos de uso principais. Base para o diagrama de classes (CP5) e para os diagramas de sequência dos fluxos de Entrega e Alerta (CP5).
+Dois atores, oito casos de uso principais, dentro da fronteira do sistema, com relações `«include»` (Cadastrar Colaborador depende de Login) e `«extend»` (Ver Alertas de Vencimento estende opcionalmente Ver Dashboard). Base para o diagrama de classes (CP5) e para os diagramas de sequência dos fluxos de Entrega e Alerta (CP5).
+
+![Diagrama de Caso de Uso do EPIGuard](caso-de-uso.svg)
+
+## Versão rápida (mermaid, sem notação UML formal)
+
+Útil só para conferência rápida de quais atores acessam quais casos de uso — o diagrama acima é a versão oficial em notação UML.
 
 ```mermaid
 flowchart LR
