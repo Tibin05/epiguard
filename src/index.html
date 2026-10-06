@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EPIGuard — Gestão de EPI</title>
+  <meta name="description" content="Protótipo funcional do EPIGuard para o Checkpoint 5 de Engenharia de Software." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <section id="loginView" class="login-view">
+    <div class="login-card">
+      <div class="brand brand-login">
+        <div class="brand-mark" aria-hidden="true"><span>✓</span></div>
+        <div>
+          <h1>EPIGuard</h1>
+          <p>Segurança rastreada, em tempo real.</p>
+        </div>
+      </div>
+
+      <div class="login-copy">
+        <span class="eyebrow">CHECKPOINT 5 · PROTÓTIPO FUNCIONAL</span>
+        <h2>Acesso ao sistema</h2>
+        <p>Entre com um dos perfis de demonstração para navegar pelo protótipo.</p>
+      </div>
+
+      <form id="loginForm" class="form-stack">
+        <label>
+          E-mail
+          <input id="email" type="email" value="tecnico@epiguard.com" required />
+        </label>
+        <label>
+          Senha
+          <input id="password" type="password" value="123456" required />
+        </label>
+        <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+      </form>
+
+      <div class="demo-access">
+        <strong>Acessos de demonstração</strong>
+        <span>Técnico: tecnico@epiguard.com / 123456</span>
+        <span>Administrador: admin@epiguard.com / 123456</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="appView" class="app-view hidden">
+    <aside class="sidebar">
+      <div class="brand sidebar-brand">
+        <div class="brand-mark"><span>✓</span></div>
+        <div><h1>EPIGuard</h1><p>Gestão de EPI</p></div>
+      </div>
+
+      <nav id="navMenu" class="nav-menu">
+        <button data-page="dashboard" class="nav-item active">▦ <span>Dashboard</span></button>
+        <button data-page="colaboradores" class="nav-item">♙ <span>Colaboradores</span></button>
+        <button data-page="epis" class="nav-item">⬡ <span>EPIs</span></button>
+        <button data-page="entregas" class="nav-item">⇄ <span>Entregas</span></button>
+        <button data-page="historico" class="nav-item">≡ <span>Histórico</span></button>
+        <button data-page="alertas" class="nav-item">⚠ <span>Alertas</span></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="profile-chip">
+          <span class="avatar">TS</span>
+          <div><strong id="profileName">Marcos Aurélio</strong><small id="profileRole">Técnico de Segurança</small></div>
+        </div>
+        <button id="logoutBtn" class="btn btn-ghost btn-full">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span id="pageEyebrow" class="eyebrow">VISÃO GERAL</span>
+          <h2 id="pageTitle">Dashboard</h2>
+        </div>
+        <div class="topbar-actions">
+          <span class="prototype-badge">Dados mockados</span>
+          <span id="todayLabel" class="date-label"></span>
+        </div>
+      </header>
+
+      <section id="dashboardPage" class="page active-page">
+        <div class="stats-grid">
+          <article class="stat-card"><span>EPIs ativos</span><strong id="statAtivos">0</strong><small>em posse de colaboradores</small></article>
+          <article class="stat-card danger"><span>Vencidos</span><strong id="statVencidos">0</strong><small>exigem ação imediata</small></article>
+          <article class="stat-card warning"><span>A vencer</span><strong id="statAVencer">0</strong><small>nos próximos 30 dias</small></article>
+          <article class="stat-card"><span>Entregas no mês</span><strong id="statMes">0</strong><small>registros realizados</small></article>
+        </div>
+
+        <div class="two-col-grid">
+          <article class="panel">
+            <div class="panel-head"><div><span class="eyebrow">PRIORIDADE</span><h3>Alertas recentes</h3></div><button class="link-btn" data-go="alertas">Ver todos</button></div>
+            <div id="dashboardAlerts" class="list-stack"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><span class="eyebrow">ATIVIDADE</span><h3>Últimas movimentações</h3></div><button class="link-btn" data-go="historico">Abrir histórico</button></div>
+            <div id="dashboardHistory" class="list-stack"></div>
+          </article>
+        </div>
+
+        <article class="panel quick-panel">
+          <div><span class="eyebrow">FLUXO PRINCIPAL</span><h3>Registrar nova entrega</h3><p>Associe um EPI a um colaborador e deixe a validade ser calculada automaticamente.</p></div>
+          <button class="btn btn-primary" data-go="entregas">Nova entrega</button>
+        </article>
+      </section>
+
+      <section id="colaboradoresPage" class="page">
+        <div class="page-actions"><div><p>Cadastre, edite e consulte os colaboradores da operação.</p></div><button id="newCollaboratorBtn" class="btn btn-primary">+ Novo colaborador</button></div>
+        <article class="panel table-panel">
+          <div class="toolbar"><input id="collabSearch" class="search" placeholder="Buscar por nome, matrícula ou função..." /></div>
+          <div class="table-wrap"><table><thead><tr><th>Colaborador</th><th>Matrícula</th><th>Função</th><th>Base</th><th>Status</th><th></th></tr></thead><tbody id="collaboratorsTable"></tbody></table></div>
+        </article>
+      </section>
+
+      <section id="episPage" class="page">
+        <div class="page-actions"><div><p>Gerencie os tipos de equipamento, CA e vida útil padrão.</p></div><button id="newEpiBtn" class="btn btn-primary">+ Novo tipo de EPI</button></div>
+        <article class="panel table-panel">
+          <div class="toolbar"><input id="epiSearch" class="search" placeholder="Buscar EPI, categoria ou CA..." /></div>
+          <div class="table-wrap"><table><thead><tr><th>Equipamento</th><th>Categoria</th><th>CA</th><th>Vida útil</th><th>Estoque</th><th>Status</th></tr></thead><tbody id="episTable"></tbody></table></div>
+        </article>
+      </section>
+
+      <section id="entregasPage" class="page">
+        <div class="two-col-grid delivery-grid">
+          <article class="panel">
+            <span class="eyebrow">RF03</span>
+            <h3>Registrar entrega</h3>
+            <p class="muted">Preencha os dados abaixo. O vencimento é calculado a partir da vida útil cadastrada.</p>
+            <form id="deliveryForm" class="form-stack compact-form">
+              <label>Colaborador<select id="deliveryCollaborator" required></select></label>
+              <label>Tipo de EPI<select id="deliveryEpi" required></select></label>
+              <label>Data da entrega<input id="deliveryDate" type="date" required /></label>
+              <div class="computed-box"><span>Validade calculada</span><strong id="computedValidity">—</strong></div>
+              <button type="submit" class="btn btn-primary">Confirmar entrega</button>
+            </form>
+          </article>
+          <article class="panel">
+            <span class="eyebrow">RF04</span>
+            <h3>Registrar devolução / descarte</h3>
+            <p class="muted">Selecione uma entrega ativa e informe o motivo da baixa.</p>
+            <form id="returnForm" class="form-stack compact-form">
+              <label>Entrega ativa<select id="returnDelivery" required></select></label>
+              <label>Destino<select id="returnReason" required><option value="Devolução">Devolução</option><option value="Descarte">Descarte</option></select></label>
+              <label>Data<input id="returnDate" type="date" required /></label>
+              <button type="submit" class="btn btn-secondary">Registrar baixa</button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section id="historicoPage" class="page">
+        <div class="page-actions"><div><p>Consulte todas as movimentações por colaborador ou equipamento.</p></div></div>
+        <article class="panel table-panel">
+          <div class="toolbar filters"><input id="historySearch" class="search" placeholder="Buscar no histórico..." /><select id="historyStatus"><option value="Todos">Todos os status</option><option value="Ativo">Ativo</option><option value="Devolvido">Devolvido</option><option value="Descartado">Descartado</option></select></div>
+          <div class="table-wrap"><table><thead><tr><th>Colaborador</th><th>EPI</th><th>Entrega</th><th>Validade</th><th>Baixa</th><th>Status</th></tr></thead><tbody id="historyTable"></tbody></table></div>
+        </article>
+      </section>
+
+      <section id="alertasPage" class="page">
+        <div class="page-actions"><div><p>EPIs vencidos ou próximos do vencimento, priorizados automaticamente.</p></div></div>
+        <div id="alertsGrid" class="alerts-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="collaboratorModal" class="modal">
+    <form id="collaboratorForm" method="dialog" class="modal-card">
+      <div class="modal-head"><div><span class="eyebrow">RF01</span><h3 id="collaboratorModalTitle">Novo colaborador</h3></div><button type="button" class="icon-btn" data-close="collaboratorModal">×</button></div>
+      <input id="collaboratorId" type="hidden" />
+      <label>Nome completo<input id="collaboratorName" required /></label>
+      <label>Matrícula<input id="collaboratorRegistration" required /></label>
+      <label>Função<input id="collaboratorRole" required /></label>
+      <label>Base / Unidade<input id="collaboratorBase" required /></label>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-close="collaboratorModal">Cancelar</button><button type="submit" class="btn btn-primary">Salvar</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="epiModal" class="modal">
+    <form id="epiForm" method="dialog" class="modal-card">
+      <div class="modal-head"><div><span class="eyebrow">RF02</span><h3>Novo tipo de EPI</h3></div><button type="button" class="icon-btn" data-close="epiModal">×</button></div>
+      <label>Nome<input id="epiName" required /></label>
+      <label>Categoria<input id="epiCategory" required /></label>
+      <label>CA — Certificado de Aprovação<input id="epiCa" required /></label>
+      <label>Vida útil padrão (dias)<input id="epiLifetime" type="number" min="1" required /></label>
+      <label>Estoque inicial<input id="epiStock" type="number" min="0" required /></label>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-close="epiModal">Cancelar</button><button type="submit" class="btn btn-primary">Salvar</button></div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

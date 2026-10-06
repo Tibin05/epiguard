@@ -1,0 +1,9 @@
+{
+  "name": "epiguard-cp5",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EPIGuard - Protótipo funcional CP5",
+  "scripts": {
+    "start": "python -m http.server 5173 -d src"
+  }
+}
